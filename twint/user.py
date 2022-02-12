@@ -1,3 +1,4 @@
+import time
 import datetime
 import logging as logme
 
@@ -67,6 +68,10 @@ def User(ur):
     _usr.is_verified = ur['data']['user']['legacy']['verified']
     _usr.avatar = ur['data']['user']['legacy']['profile_image_url_https']
     _usr.background_image = ur['data']['user']['legacy']['profile_banner_url']
+    
+    # Added new column for scraped_time
+    _usr.scraped_time = time.strftime('%Y-%m-%d %H')
+    
     # TODO : future implementation
     # legacy_extended_profile is also available in some cases which can be used to get DOB of user
     return _usr
