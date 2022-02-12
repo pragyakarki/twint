@@ -78,6 +78,7 @@ def User(_format, u):
             output = output.replace("{background_image}", u.background_image)
         else:
             output = output.replace("{background_image}", "")
+        output = output.replace("{scraped_time}", u.scraped_time)
     else:
         logme.debug(__name__+':User:notFormat')
         output = f"{u.id} | {u.name} | @{u.username} | Private: "
@@ -86,6 +87,6 @@ def User(_format, u):
         output += f"{u.url} | Joined: {u.join_date} {u.join_time} "
         output += f"| Tweets: {u.tweets} | Following: {u.following}"
         output += f" | Followers: {u.followers} | Likes: {u.likes} "
-        output += f"| Media: {u.media_count} | Avatar: {u.avatar}"
+        output += f"| Media: {u.media_count} | Avatar: {u.avatar} | Date: {u.scraped_time}"
 
     return output
